@@ -1,3 +1,5 @@
+# Improvements: https://chatgpt.com/share/6868ac62-49cc-800d-88ab-2aa25a0ed26f
+
 import speech_recognition as sr
 import pyttsx3
 import pyautogui
@@ -97,7 +99,7 @@ def scroll():
             elif press_direction == "down":
                 scroll_direction = None
                 pyautogui.press("down")
-            time.sleep(1)
+            time.sleep(0.5)
 
         if scroll_direction:
             if scroll_direction == "up":
