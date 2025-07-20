@@ -17,12 +17,10 @@ threshold = 40
 
 last_clap_time = 0
 
-
 def SpeakText(command):
     engine = pyttsx3.init()
     engine.say(command)
     engine.runAndWait()
-
 
 def clap_detect(indata, frames, time_info, status):
     global press_direction, scroll_direction, last_clap_time
@@ -36,7 +34,6 @@ def clap_detect(indata, frames, time_info, status):
             scroll_direction = "down"
             press_direction = None
         last_clap_time = now
-
 
 def listen():
     global press_direction, scroll_direction, speed
@@ -81,12 +78,10 @@ def listen():
                 traceback.print_exc()
                 continue
 
-
 def clap_listener():
     with sd.InputStream(callback=clap_detect):
         while True:
             time.sleep(0.1)
-
 
 def scroll():
     global press_direction, scroll_direction, speed
@@ -111,7 +106,6 @@ def scroll():
                 press_direction = None
                 pyautogui.scroll(0)
             time.sleep(speed)
-
 
 threading.Thread(target=listen, daemon=True).start()
 threading.Thread(target=scroll, daemon=True).start()
